@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>898ABE9E-91E1-422F-869D-A1D54E3B20C1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>magicopener</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C29260993D78535F52E31D6A7251B979FE7175B5</key>
+		<string>https://github.com/cookingios/MagicOpener2.0.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>magicopener.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C29260993D78535F52E31D6A7251B979FE7175B5</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cookingios/MagicOpener2.0.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C29260993D78535F52E31D6A7251B979FE7175B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C29260993D78535F52E31D6A7251B979FE7175B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MagicOpener2.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
