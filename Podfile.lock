@@ -1,0 +1,44 @@
+PODS:
+  - Bolts (1.1.3)
+  - BZGFormField (1.1.2)
+  - FaceAwareFill (1.0)
+  - HexColors (2.2.1)
+  - Mantle (1.5.1):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.5.1)
+  - MBProgressHUD (0.9)
+  - Parse (1.5.0):
+    - Bolts (~> 1.1.3)
+  - pop (1.0.7)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.7.1)
+  - SwipeView (1.3.2)
+  - TSMessages (0.9.11):
+    - HexColors
+
+DEPENDENCIES:
+  - BZGFormField
+  - FaceAwareFill
+  - Mantle
+  - MBProgressHUD
+  - Parse
+  - pop
+  - SDWebImage
+  - SwipeView
+  - TSMessages
+
+SPEC CHECKSUMS:
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  BZGFormField: c469a07c251a9fd8bd8d8fce023896b15d752a99
+  FaceAwareFill: ea87c5a2c50b29b6836442d88af851d1eb1f13b4
+  HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
+  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  Parse: 7de25b6f70f0b233e5d25835f62eabfa91e4f9d7
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SwipeView: 0093c212acf3d715b09334c50d568a4418404150
+  TSMessages: e21ef5b1c7518cc590a4826c8b05b16b79b10c2c
+
+COCOAPODS: 0.34.4

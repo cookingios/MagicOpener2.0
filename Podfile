@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform:ios,'7.0'
+
+pod 'BZGFormField'
+pod 'TSMessages'
+pod 'MBProgressHUD'
+pod 'Parse'
+pod 'SDWebImage'
+pod 'SwipeView'
+pod 'FaceAwareFill'
+pod 'Mantle'
+pod 'pop'
