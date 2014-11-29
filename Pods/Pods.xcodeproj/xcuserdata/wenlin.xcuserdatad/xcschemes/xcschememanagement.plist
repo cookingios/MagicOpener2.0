@@ -44,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SwipeView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-TSMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>020F7A787AB14BA6CD5D50ED</key>
+		<key>191C6214073132C0A2FD8B50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>143D90C5462D62F12AC87D06</key>
+		<key>356F4EF5E53A6BD565995F7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18E56C0D1CFF8113A2350D76</key>
+		<key>47B3C5F8705EE0106023E9FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>26D860AAAA145BDB92732D64</key>
+		<key>7E1292FBF8702DB861074EBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>408C238B690D9278DB765E9B</key>
+		<key>95E884F4F3A4D6AEC29AC054</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54DAB79B8048502886244946</key>
+		<key>9A9971C41A6CB52DBFBDE2A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9439D81D3E08AF9852DB5B22</key>
+		<key>9D6B2AAC22C5BC64C5D53634</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A708309060AAE920096D1239</key>
+		<key>C345387F8FA3A335CD3B4480</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C793753A4BD19C161FA0CB48</key>
+		<key>CACA2E01BB9243FE04CE64BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E5BD8742B2DAD54347E9C8B0</key>
+		<key>DA960DCECDFDFC87CD9A7C63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EEB76A604478CA46048591B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF5861F5E4898DD21AF50613</key>
+		<key>FF0F888FADF850C736A89BC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

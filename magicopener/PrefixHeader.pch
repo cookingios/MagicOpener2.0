@@ -14,5 +14,6 @@
 #import <Parse/Parse.h>
 #import <MBProgressHUD.h>
 #import <TSMessage.h>
+#import "MOHelper.h"
 
 #endif
