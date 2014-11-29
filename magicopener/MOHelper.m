@@ -579,4 +579,9 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
++ (void)showErrorMessage:(NSString*)message{
+    [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeError];
+}
+
 @end

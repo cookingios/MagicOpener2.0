@@ -44,7 +44,14 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    
+    if (![PFUser currentUser]) {
+        return [self.navigationController performSegueWithIdentifier:@"WelcomeSegue" sender:self];
+    }
+    
     //[MobClick beginLogPageView:@"Helper"];
+    
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

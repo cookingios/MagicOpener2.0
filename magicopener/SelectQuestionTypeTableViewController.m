@@ -66,7 +66,7 @@
             break;
     }
     
-    //[self performSegueWithIdentifier:@"SubmitSegue" sender:self];
+    [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
     
     
 }

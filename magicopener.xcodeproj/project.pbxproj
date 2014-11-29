@@ -25,6 +25,8 @@
 		BD3AF2181A29A59000A3F700 /* QAPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2171A29A59000A3F700 /* QAPageViewController.m */; };
 		BD3AF21B1A29A5A900A3F700 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF21A1A29A5A900A3F700 /* QADetailViewController.m */; };
 		BDABE1751A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE1741A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m */; };
+		BDABE1781A29EF10003D83B9 /* SubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE1771A29EF10003D83B9 /* SubmitViewController.m */; };
+		BDABE17B1A2A277E003D83B9 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE17A1A2A277E003D83B9 /* WelcomeViewController.m */; };
 		E081F91B9175A24E221C9244 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7984C62391385460D40C5F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,10 @@
 		BD3AF21A1A29A5A900A3F700 /* QADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QADetailViewController.m; sourceTree = "<group>"; };
 		BDABE1731A29E42E003D83B9 /* SelectQuestionTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectQuestionTypeTableViewController.h; sourceTree = "<group>"; };
 		BDABE1741A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectQuestionTypeTableViewController.m; sourceTree = "<group>"; };
+		BDABE1761A29EF10003D83B9 /* SubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitViewController.h; sourceTree = "<group>"; };
+		BDABE1771A29EF10003D83B9 /* SubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitViewController.m; sourceTree = "<group>"; };
+		BDABE1791A2A277E003D83B9 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		BDABE17A1A2A277E003D83B9 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,8 @@
 		BD3AF1EF1A265B5000A3F700 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BDABE1791A2A277E003D83B9 /* WelcomeViewController.h */,
+				BDABE17A1A2A277E003D83B9 /* WelcomeViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -244,6 +252,8 @@
 				BD3AF2171A29A59000A3F700 /* QAPageViewController.m */,
 				BD3AF2191A29A5A900A3F700 /* QADetailViewController.h */,
 				BD3AF21A1A29A5A900A3F700 /* QADetailViewController.m */,
+				BDABE1761A29EF10003D83B9 /* SubmitViewController.h */,
+				BDABE1771A29EF10003D83B9 /* SubmitViewController.m */,
 			);
 			name = Expert;
 			sourceTree = "<group>";
@@ -398,8 +408,10 @@
 			files = (
 				BD3AF1F51A265C8900A3F700 /* MOHelper.m in Sources */,
 				BD3AF2181A29A59000A3F700 /* QAPageViewController.m in Sources */,
+				BDABE1781A29EF10003D83B9 /* SubmitViewController.m in Sources */,
 				BD3AF20C1A28C42200A3F700 /* DateIdeaItem.m in Sources */,
 				BD3AF20F1A28E5AA00A3F700 /* HistoryViewController.m in Sources */,
+				BDABE17B1A2A277E003D83B9 /* WelcomeViewController.m in Sources */,
 				BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */,
 				BD3AF20B1A28C42200A3F700 /* MOBusiness.m in Sources */,
 				BD3AF1C11A26527F00A3F700 /* main.m in Sources */,

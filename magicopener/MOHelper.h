@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <TSMessage.h>
 #import <Bolts.h>
 
 
@@ -77,5 +78,8 @@
 
 //根据生日拿星座
 + (NSString *)getAstroByBirthday: (NSDate *) birthday;
+
+//错误信息
++ (void)showErrorMessage:(NSString*)message;
 
 @end
