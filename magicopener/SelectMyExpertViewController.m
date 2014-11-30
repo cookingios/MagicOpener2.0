@@ -34,9 +34,7 @@
             self.experts = [objects mutableCopy];
             [self.tableView reloadData];
         }else{
-            [TSMessage showNotificationWithTitle:@"网络连接错误"
-                                        subtitle:@"请稍后再试"
-                                            type:TSMessageNotificationTypeError];
+            [MOHelper showErrorMessage:@"网络连接错误" inViewController:self];
         }
     }];
 }
@@ -48,10 +46,7 @@
     if (![PFUser currentUser]) {
         return [self.navigationController performSegueWithIdentifier:@"WelcomeSegue" sender:self];
     }
-    
     //[MobClick beginLogPageView:@"Helper"];
-    
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

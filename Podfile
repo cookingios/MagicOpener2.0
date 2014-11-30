@@ -1,6 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform:ios,'7.0'
 
+pod 'IQKeyboardManager'
 pod 'BZGFormField'
 pod 'TSMessages'
 pod 'MBProgressHUD'
@@ -9,3 +10,4 @@ pod 'SDWebImage'
 pod 'FaceAwareFill'
 pod 'Mantle'
 pod 'pop'
+pod 'BlocksKit'

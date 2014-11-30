@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <TSMessage.h>
 #import <Bolts.h>
-
+#import "NSObject+DelayBlock.h"
 
 @interface MOHelper : NSObject
 
@@ -80,6 +80,6 @@
 + (NSString *)getAstroByBirthday: (NSDate *) birthday;
 
 //错误信息
-+ (void)showErrorMessage:(NSString*)message;
++ (void)showErrorMessage:(NSString*)message inViewController:(UIViewController*)vc;
 
 @end

@@ -580,8 +580,8 @@
     return image;
 }
 
-+ (void)showErrorMessage:(NSString*)message{
-    [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeError];
++ (void)showErrorMessage:(NSString*)message inViewController:(UIViewController*)vc{
+    [TSMessage showNotificationInViewController:vc title:message subtitle:nil type:TSMessageNotificationTypeError];
 }
 
 @end

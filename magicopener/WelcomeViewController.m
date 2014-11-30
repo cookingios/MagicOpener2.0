@@ -53,9 +53,7 @@
 }
 
 - (IBAction)signup:(id)sender {
-    NSLog(@"signup debug1");
     [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-    NSLog(@"signup debug2");
 }
 
 - (IBAction)login:(id)sender {

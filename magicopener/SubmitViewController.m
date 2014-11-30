@@ -79,7 +79,7 @@
 
 - (IBAction)submit:(id)sender {
     if ((!self.screenshot) && [self.contentTextView.text isEqualToString:@""]) {
-        return [MOHelper showErrorMessage:@"需文字描述或上传聊天记录截图"];
+        return [MOHelper showErrorMessage:@"需文字描述或上传聊天记录截图" inViewController:self];
     }
     
     self.hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
@@ -89,7 +89,7 @@
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:25.0f target:self selector:@selector(handleHudTimeout) userInfo:nil repeats:NO];
     
     if (!self.toUser) {
-        return [MOHelper showErrorMessage:@"无法获取情感专家信息,请检查网络"];
+        return [MOHelper showErrorMessage:@"无法获取情感专家信息,请检查网络" inViewController:self];
     }
     
     PFObject *message = [PFObject objectWithClassName:@"Message"];
@@ -127,7 +127,7 @@
             [push sendPushInBackground];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
-            [MOHelper showErrorMessage:@"网络连接问题,稍后再试"];
+            [MOHelper showErrorMessage:@"网络连接问题,稍后再试" inViewController:self];
         }
     }];
 }
