@@ -23,7 +23,6 @@
     
     [self setViewControllers:@[viewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     self.dataSource = self;
-    //self.delegate = self;
     
 }
 
@@ -56,6 +55,7 @@
     newVC.message = self.messages[newIndex];
     return newVC;
 }
+
 
 /*
 #pragma mark - Navigation

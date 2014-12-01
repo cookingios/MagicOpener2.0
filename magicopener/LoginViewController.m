@@ -11,7 +11,6 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet BZGFormField *emailTextField;
 @property (weak, nonatomic) IBOutlet BZGFormField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UIScrollView *backgroundScrollView;
 
 @property (unsafe_unretained,nonatomic) BOOL isEditing;
 
@@ -40,9 +39,6 @@
     [super viewWillAppear:animated];
     //[MobClick beginLogPageView:@"LogIn"];
     
-    self.backgroundScrollView.contentSize = CGSizeMake(320, 720);
-    self.backgroundScrollView.scrollEnabled = YES;
-    self.isEditing = NO;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
@@ -82,21 +78,6 @@
         }
     }];
     
-    //emailTextField Add online validation
-    [self.emailTextField setAsyncTextValidationBlock:^BOOL(BZGFormField *field,NSString *text) {
-        NSString *trimText = [MOHelper trimString:text];
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:trimText];
-        query.cachePolicy = kPFCachePolicyNetworkOnly;
-        NSInteger k = [query countObjects];
-        //NSLog(@"%d",k);
-        if (k<1) {
-            weakSelf.emailTextField.alertView.title = @"找不到该账号,请尝试注册";
-            return NO;
-        }
-        return YES;
-    }];
-    
     self.passwordTextField.textField.placeholder = @"密码";
     self.passwordTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.passwordTextField.textField.secureTextEntry = YES;
@@ -105,7 +86,7 @@
     [self.passwordTextField setTextValidationBlock:^BOOL(BZGFormField *field,NSString *text) {
         NSString *trimText = [MOHelper trimString:text];
         if (trimText.length < 6) {
-            weakSelf.passwordTextField.alertView.title = @"密码有点短";
+            weakSelf.passwordTextField.alertView.title = @"密码长度太短";
             return NO;
         } else {
             return YES;
@@ -115,17 +96,7 @@
 }
 
 #pragma mark - textfield delegate
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    
-    if (!self.isEditing) {
-        _backgroundScrollView.contentSize = CGSizeMake(320, 680);
-        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _backgroundScrollView.contentOffset=CGPointMake(0, 50);
-        } completion:nil];
-        
-        self.editing = YES;
-    }
-}
+
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([string isEqualToString:@" "]){
@@ -168,40 +139,39 @@
         [self.passwordTextField.textField becomeFirstResponder];
         return [MOHelper showErrorMessage:error inViewController:self];
     }
-    /*
-    [MRProgressOverlayView showOverlayAddedTo:[[self view] window] title:@"稍等片刻" mode:MRProgressOverlayViewModeIndeterminateSmall animated:YES];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:15.0f target:self selector:@selector(handleHudTimeout) userInfo:nil repeats:NO];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [self performBlock:^{
+        if (!hud.hidden) {
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"网络连接出现问题";
+            [hud hide:YES afterDelay:2];
+        }
+    } afterDelay:15];
     
     [PFUser logInWithUsernameInBackground:self.emailTextField.textField.text password:self.passwordTextField.textField.text block:^(PFUser *user, NSError *error) {
-        [timer invalidate];
+        [hud hide:YES];
         if (!error) {
             //Setup the installation.
             PFInstallation *installation = [PFInstallation currentInstallation];
             [installation setObject:user forKey:@"owner"];
             [installation saveInBackground];
-            [MRProgressOverlayView dismissAllOverlaysForView:[[self view] window] animated:YES completion:^{
-                [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"RootViewController"] animated:NO completion:nil];
-            }];
+            [self dismissViewControllerAnimated:YES completion:nil];
         } else {
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            [MRProgressOverlayView dismissAllOverlaysForView:[[self view] window] animated:YES completion:^{
-                [self showErrorMessage:errorString];
-            }];
+            NSString *errorString = @"";
+            if ([error code] == kPFErrorObjectNotFound) {
+                errorString = @"账号未注册,或输入密码错误";
+            } else if ([error code] == kPFErrorConnectionFailed) {
+                errorString = @"网络连接不上了";
+            } else if (error) {
+                NSLog(@"Error: %@", [error userInfo][@"error"]);
+            }
+            [MOHelper showErrorMessage:errorString inViewController:self];
         }
         
     }];
-     */
     
 }
-
-- (void)handleHudTimeout{
-    /*
-    [MRProgressOverlayView dismissAllOverlaysForView:[[self view] window] animated:YES completion:^{
-        [TSMessage showNotificationWithTitle:@"网络连接超时,请重试" type:TSMessageNotificationTypeError];
-    }];
-    */
-}
-
 
 
 @end

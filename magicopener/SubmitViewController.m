@@ -38,10 +38,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    [self.contentTextView becomeFirstResponder];
+
     //[MobClick beginLogPageView:@"SubmitQuestionType1"];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.contentTextView becomeFirstResponder];
+}
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
@@ -62,19 +65,19 @@
         [self presentViewController:picker animated:YES completion:nil];
     }
 }
-
+#pragma mark - imagepicker delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     NSData *imgData = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 0.1f);
-    
     [self.eventImageView setImage:[UIImage imageWithData:imgData]];
     self.screenshot = [PFFile fileWithData:imgData];
-    
     [self.screenshot saveInBackground];
-    
     [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    
+
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)submit:(id)sender {
