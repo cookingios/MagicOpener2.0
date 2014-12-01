@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>898ABE9E-91E1-422F-869D-A1D54E3B20C1</string>
+	<string>5C480C76-FB5B-4836-9FE6-0A9663D93859</string>
 	<key>IDESourceControlProjectName</key>
 	<string>magicopener</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C29260993D78535F52E31D6A7251B979FE7175B5</string>
 			<key>IDESourceControlWCCName</key>
-			<string>MagicOpener2.0</string>
+			<string>magicopener</string>
 		</dict>
 	</array>
 </dict>

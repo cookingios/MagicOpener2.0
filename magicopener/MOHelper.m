@@ -585,4 +585,8 @@
     [TSMessage showNotificationInViewController:vc title:message subtitle:nil type:TSMessageNotificationTypeError];
 }
 
++ (void)showSuccessMessage:(NSString*)message inViewController:(UIViewController*)vc{
+    [TSMessage showNotificationInViewController:vc title:message subtitle:nil type:TSMessageNotificationTypeSuccess];
+}
+
 @end

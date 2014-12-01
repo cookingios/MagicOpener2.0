@@ -82,4 +82,6 @@
 //错误信息
 + (void)showErrorMessage:(NSString*)message inViewController:(UIViewController*)vc;
 
+//成功信息
++ (void)showSuccessMessage:(NSString*)message inViewController:(UIViewController*)vc;
 @end

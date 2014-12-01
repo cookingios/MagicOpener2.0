@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1F47BE1A2CBB2C004717C3 /* EXPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */; };
 		BD3AF1C11A26527F00A3F700 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF1C01A26527F00A3F700 /* main.m */; };
 		BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF1C31A26527F00A3F700 /* AppDelegate.m */; };
 		BD3AF1CD1A26527F00A3F700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF1CB1A26527F00A3F700 /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 		0F7984C62391385460D40C5F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFC8CF7D0751CBEF9C10118 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B3979BDC1DB7491C2888CCE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BD1F47BC1A2CBB2B004717C3 /* EXPhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPhotoViewer.h; sourceTree = "<group>"; };
+		BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXPhotoViewer.m; sourceTree = "<group>"; };
 		BD3AF1BB1A26527F00A3F700 /* magicopener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicopener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3AF1BF1A26527F00A3F700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD3AF1C01A26527F00A3F700 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,6 +145,15 @@
 				0F7984C62391385460D40C5F /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD1F47BB1A2CBB2B004717C3 /* EXPhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				BD1F47BC1A2CBB2B004717C3 /* EXPhotoViewer.h */,
+				BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */,
+			);
+			path = EXPhotoViewer;
 			sourceTree = "<group>";
 		};
 		BD3AF1B21A26527F00A3F700 = {
@@ -320,6 +332,7 @@
 		BDFE1D561A2C5CED00223521 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BD1F47BB1A2CBB2B004717C3 /* EXPhotoViewer */,
 			);
 			name = ThirdParty;
 			sourceTree = "<group>";
@@ -475,6 +488,7 @@
 				BDABE17B1A2A277E003D83B9 /* WelcomeViewController.m in Sources */,
 				BDABE18D1A2B03E5003D83B9 /* UIBarButtonItem+Badge.m in Sources */,
 				BDABE1801A2AB5E5003D83B9 /* SignUpViewController.m in Sources */,
+				BD1F47BE1A2CBB2C004717C3 /* EXPhotoViewer.m in Sources */,
 				BDABE1811A2AB5E5003D83B9 /* LoginViewController.m in Sources */,
 				BDFE1D551A2C365F00223521 /* MessageMasterViewController.m in Sources */,
 				BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */,

@@ -99,7 +99,7 @@
 {
     PFUser *user = [PFUser currentUser];
     BOOL isExpert = [[user objectForKey:@"isExpert"] boolValue];
-    //如果该用户为情感专家
+    //如果当前用户为普通用户
     if (!isExpert) {
         static NSString *cellIdentifier = @"UserMessageCell";
         MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -119,7 +119,7 @@
         cell.contentLabel.text = [NSString stringWithFormat:@"回复了你:%@",content];
         
         return cell;
-    //如果该用户为普通用户
+    //如果当前用户为专家用户
     } else {
         static NSString *cellIdentifier = @"ExpertMessageCell";
         ExpertMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];

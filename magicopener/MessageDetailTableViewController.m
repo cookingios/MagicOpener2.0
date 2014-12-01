@@ -8,8 +8,12 @@
 
 #import "MessageDetailTableViewController.h"
 #import <UIImageView+WebCache.h>
+#import <BlocksKit+UIKit.h>
+#import <RateView.h>
+#import "EXPhotoViewer.h"
 
-@interface MessageDetailTableViewController ()
+
+@interface MessageDetailTableViewController ()<RateViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *evaluateView;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -18,9 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *answerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *helperLabel;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
-
-@property (strong,nonatomic) NSNumber *score;
-
+@property (weak, nonatomic) IBOutlet UIView *rateBackgroundView;
+@property (strong, nonatomic) RateView *rateView;
 
 - (IBAction)submitEvaluation:(id)sender;
 
@@ -40,19 +43,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //QA部分
     self.questionLabel.text = [NSString stringWithFormat:@"\"%@\"", [self.message objectForKey:@"problem"]];
     self.answerLabel.text = [NSString stringWithFormat:@"\"%@\"", [self.message objectForKey:@"reply"]];
     self.helperLabel.text = [NSString stringWithFormat:@"by %@", [[self.message objectForKey:@"expert"] objectForKey:@"displayName"]];
-    [self.questionImageView sd_setImageWithURL:[NSURL URLWithString:[(PFFile *)[self.message objectForKey:@"screenshot"] url]]];
     
+    //图片缩放
+    if ([self.message objectForKey:@"screenshot"]) {
+        [self.questionImageView sd_setImageWithURL:[NSURL URLWithString:[(PFFile *)[self.message objectForKey:@"screenshot"] url]]];
+        UITapGestureRecognizer *tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+            [EXPhotoViewer showImageFrom:self.questionImageView];
+        }];
+        [self.questionImageView addGestureRecognizer:tap];
+    }
+    //评价部分
     if ([[self.message allKeys] containsObject:@"star"]) {
-        self.evaluateView.superview.superview.hidden = YES;
+        self.evaluateView.superview.hidden = YES;
+    }else{
+        //ratingview
+        self.rateView = [RateView rateViewWithRating:3.0f];
+        self.rateView.frame = CGRectMake(0, 0, 150, 30);
+        self.rateView.starSize = 30;
+        self.rateView.canRate = YES;
+        self.rateView.delegate = self;
+        self.rateView.starNormalColor = [UIColor colorWithRed:255/255.0f green:255/255.0f
+                                                  blue:255/255.0 alpha:1.0];
+        self.rateView.starFillColor = [UIColor colorWithRed:255/255.0f green:209/255.0f
+                                                blue:23/255.0 alpha:1.0];
+        self.rateView.starBorderColor = [UIColor colorWithRed:38/255.0f green:38/255.0f
+                                                  blue:38/255.0 alpha:1.0];
+        [self.rateBackgroundView addSubview:self.rateView];
+        
+        //提交按钮
+        self.submitButton.layer.masksToBounds = YES;
+        self.submitButton.layer.cornerRadius = 6.0f;
+        self.submitButton.layer.borderWidth = 1.0f;
+        self.submitButton.layer.borderColor = [[UIColor grayColor] CGColor];
     }
     
-    self.submitButton.layer.masksToBounds = YES;
-    self.submitButton.layer.cornerRadius = 6.0f;
-    self.submitButton.layer.borderWidth = 1.0f;
-    self.submitButton.layer.borderColor = [[UIColor grayColor] CGColor];
     
 }
 
@@ -61,9 +89,6 @@
     [super viewWillAppear:animated];
     //[MobClick beginLogPageView:@"MessageDetail"];
 
-    
-    
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -80,30 +105,35 @@
 }
 
 - (IBAction)submitEvaluation:(id)sender {
-    /*
-    float number = [self.score floatValue];
+    
+    float number = self.rateView.rating;
     if (number>0.1) {
-        self.hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        [self.navigationController.view addSubview:self.hud];
-        [self.hud show:YES];
-        
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(handleHudTimeout) userInfo:nil repeats:NO];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        [self performBlock:^{
+            if (!hud.hidden) {
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"网络连接出现问题";
+                [hud hide:YES afterDelay:2];
+            }
+        } afterDelay:15];
 
-        [self.message setObject:self.score forKey:@"star"];
+        [self.message setObject:[NSNumber numberWithFloat:number] forKey:@"star"];
         [self.message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [hud hide:YES];
             if (succeeded) {
-                [timer invalidate];
-                _hud.mode = MBProgressHUDModeText;
-                _hud.labelText = @"成功提交";
-                [_hud hide:YES afterDelay:2];
+                [MOHelper showSuccessMessage:@"提交成功" inViewController:self];
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
         }];
         
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分数不能为0哦" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
+        [MOHelper showErrorMessage:@"分数不能为0哦" inViewController:self];
     }
-     */
+}
+
+#pragma mark - rateview delegate
+-(void)rateView:(RateView*)rateView didUpdateRating:(float)rating
+{
+    NSLog(@"rateViewDidUpdateRating: %.1f", rating);
 }
 @end

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessageDetailTableViewController : UITableViewController<UITableViewDelegate>
-
+@interface MessageDetailTableViewController : UITableViewController
 
 @property (nonatomic,strong) PFObject *message;
 

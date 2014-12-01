@@ -788,8 +788,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8C6-dd-5VE" id="BlG-17-118">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CnE-Dt-WrG">
-                                                    <rect key="frame" x="490" y="4" width="95" height="132"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CnE-Dt-WrG">
+                                                    <rect key="frame" x="502" y="4" width="95" height="132"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="95" id="QjI-Um-g9w"/>
                                                         <constraint firstAttribute="height" constant="132" id="ymD-a3-rL2"/>
@@ -816,13 +816,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="CnE-Dt-WrG" firstAttribute="leading" secondItem="iqE-7q-rhX" secondAttribute="trailing" constant="15" id="06l-vo-hsM"/>
+                                                <constraint firstItem="CnE-Dt-WrG" firstAttribute="leading" secondItem="iqE-7q-rhX" secondAttribute="trailing" constant="27" id="06l-vo-hsM"/>
                                                 <constraint firstItem="r2q-wJ-eAr" firstAttribute="leading" secondItem="BlG-17-118" secondAttribute="leadingMargin" constant="17" id="8MJ-hn-cds"/>
                                                 <constraint firstItem="r2q-wJ-eAr" firstAttribute="leading" secondItem="iqE-7q-rhX" secondAttribute="leading" id="EcE-NT-4dn"/>
                                                 <constraint firstItem="iqE-7q-rhX" firstAttribute="top" secondItem="r2q-wJ-eAr" secondAttribute="bottom" constant="4" id="Q1H-3L-6oa"/>
                                                 <constraint firstItem="CnE-Dt-WrG" firstAttribute="top" secondItem="BlG-17-118" secondAttribute="topMargin" constant="-4" id="flp-Xe-KGc"/>
                                                 <constraint firstItem="r2q-wJ-eAr" firstAttribute="top" secondItem="BlG-17-118" secondAttribute="topMargin" constant="8" id="n3Z-U4-c8f"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CnE-Dt-WrG" secondAttribute="trailing" constant="7" id="siT-zD-pju"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CnE-Dt-WrG" secondAttribute="trailing" constant="-5" id="siT-zD-pju"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -831,7 +831,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ayi-dI-vHw" id="eMI-mr-X0P">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A答案" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCl-t9-BrS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A回答" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCl-t9-BrS">
                                                     <rect key="frame" x="25" y="17" width="74" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="74" id="TIo-oU-3BF"/>
@@ -888,19 +888,32 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8r7-Rg-nLN">
-                                                    <rect key="frame" x="503" y="10" width="78" height="30"/>
+                                                    <rect key="frame" x="503" y="8" width="78" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="78" id="GfR-EU-Pbm"/>
-                                                        <constraint firstAttribute="height" constant="30" id="rBM-UK-zfn"/>
+                                                        <constraint firstAttribute="height" constant="34" id="rBM-UK-zfn"/>
                                                     </constraints>
                                                     <state key="normal" title="提交">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="submitEvaluation:" destination="fQ8-J2-BID" eventType="touchUpInside" id="bkN-Fb-EAN"/>
+                                                    </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4v-o2-KYZ">
+                                                    <rect key="frame" x="91" y="8" width="168" height="36"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="168" id="DBM-ax-PQd"/>
+                                                        <constraint firstAttribute="height" constant="36" id="Vat-l4-jlS"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="z4v-o2-KYZ" firstAttribute="leading" secondItem="dDF-6s-gx9" secondAttribute="trailing" id="2MV-7N-T7c"/>
                                                 <constraint firstItem="dDF-6s-gx9" firstAttribute="leading" secondItem="JrZ-Gh-ezw" secondAttribute="leadingMargin" constant="17" id="44z-1P-ymG"/>
-                                                <constraint firstItem="8r7-Rg-nLN" firstAttribute="top" secondItem="JrZ-Gh-ezw" secondAttribute="topMargin" constant="2" id="L2A-ig-NCZ"/>
+                                                <constraint firstItem="z4v-o2-KYZ" firstAttribute="top" secondItem="JrZ-Gh-ezw" secondAttribute="topMargin" id="5x7-X8-40Z"/>
+                                                <constraint firstItem="8r7-Rg-nLN" firstAttribute="top" secondItem="JrZ-Gh-ezw" secondAttribute="topMargin" id="L2A-ig-NCZ"/>
                                                 <constraint firstItem="dDF-6s-gx9" firstAttribute="top" secondItem="JrZ-Gh-ezw" secondAttribute="topMargin" constant="3" id="ikE-cd-sY5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8r7-Rg-nLN" secondAttribute="trailing" constant="11" id="v76-2B-qql"/>
                                             </constraints>
@@ -921,12 +934,13 @@
                         <outlet property="helperLabel" destination="o1A-OK-C2P" id="DDg-U5-EfK"/>
                         <outlet property="questionImageView" destination="CnE-Dt-WrG" id="EF6-mW-r83"/>
                         <outlet property="questionLabel" destination="iqE-7q-rhX" id="6hP-J4-FRj"/>
+                        <outlet property="rateBackgroundView" destination="z4v-o2-KYZ" id="zKc-mN-pFd"/>
                         <outlet property="submitButton" destination="8r7-Rg-nLN" id="yFi-bm-EgA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbG-X8-3e4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="-980"/>
+            <point key="canvasLocation" x="2096" y="-981"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1038,189 +1052,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="33P-rm-hnb">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;&quot;因为你长得丑.&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="33P-rm-hnb">
                                 <rect key="frame" x="16" y="74" width="568" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="EUo-jv-Bfq"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="&quot;">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="因为你长得丑">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".&quot;">
-                                        <attributes>
-                                            <color key="NSColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A 回答 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKG-3w-56i">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A回答 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKG-3w-56i">
                                 <rect key="frame" x="16" y="191" width="114" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="mos-c6-zwo"/>
                                     <constraint firstAttribute="width" constant="114" id="xTV-ZY-AIf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                <color key="textColor" red="0.64251893940000004" green="0.64251893940000004" blue="0.64251893940000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q 问题 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdO-Hn-3rI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q问题 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdO-Hn-3rI">
                                 <rect key="frame" x="16" y="29" width="114" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="0dc-Gk-gZq"/>
                                     <constraint firstAttribute="width" constant="114" id="zCj-IP-P7n"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                <color key="textColor" red="0.64251893939393945" green="0.64251893939393945" blue="0.64251893939393945" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="1ym-W5-wML">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="&quot;为什么她不理我了？&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="1ym-W5-wML">
                                 <rect key="frame" x="16" y="242" width="568" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="M0y-Hl-bYa"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="&quot;">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="为什么她不理我了？">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="STHeitiSC-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="&quot;">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
