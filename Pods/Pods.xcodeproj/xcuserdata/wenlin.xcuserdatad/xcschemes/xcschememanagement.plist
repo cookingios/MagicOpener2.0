@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HexColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,6 +50,16 @@
 			<false/>
 		</dict>
 		<key>Pods-Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ParseFacebookUtils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ParseUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,67 +87,82 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>135BD014E2352F64DBBDB583</key>
+		<key>088A5332542204068E90E88A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20E3A71C5E62B7044369A2BE</key>
+		<key>1348027F312B1F46BE6E6C7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D275671C4108051FC03EE57</key>
+		<key>191A6F7F2F73A5B0BB5DF04D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C0FE9F6A41F5159BC509489</key>
+		<key>1FCEE79EBC564DED70A230D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>673914737788BE97689AC9E9</key>
+		<key>365C5104EAA819ADE6064093</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70F94274EE8B2D216A891D54</key>
+		<key>3D8C71E63A6029633946B580</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>714F3F38C779AA3B7E775AE9</key>
+		<key>485BFA3CCB974499D4436AA4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB3EAF5A5FDA1A46C6EFD168</key>
+		<key>4E6A1E9BAAAB3A1C79C43B9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B19D11C5E0FC4C673202C693</key>
+		<key>511235ED951F213D6D1B42A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7778DD772775B8939745D3A</key>
+		<key>6BF1569BCE88E766AA46D40F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D98557D462D541882127FBE6</key>
+		<key>6CC97B3BD055F6271BE8A99B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE8AB144816D16CAA7903BBF</key>
+		<key>716EE9C2EFEF1BDA23C0BF4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDCED27D56B7CE4A14EDCDB9</key>
+		<key>9C35BDE0D102A136D902EAD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3C21C3364B4F4A55460C677</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C95F74BD8E4555AB09158B9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2D7B1C0CF70BB6C9419F9EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

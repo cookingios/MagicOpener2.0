@@ -258,7 +258,7 @@
         return NO;
     }
 }
-
+/*
 //md5 32位 加密 （小写）
 + (NSString *)md5:(NSString *)str {
     
@@ -287,13 +287,14 @@
             result[28], result[29],result[30], result[31]];
     
 }
+*/
 
 + (NSMutableArray*)shuffleNSMutableArray:(NSMutableArray*)array{
     if (!array.count) {
         return nil;
     }
     NSMutableArray *mArray = array;
-    int count = [mArray count];
+    NSUInteger count = [mArray count];
     for (int i = 0; i < count; ++i) {
         int n = (arc4random() % (count - i)) + i;
         [mArray exchangeObjectAtIndex:i withObjectAtIndex:n];

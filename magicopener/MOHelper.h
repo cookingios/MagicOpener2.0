@@ -47,7 +47,7 @@
 +(BOOL)getInstalledId;
 
 //MD5加密 32位 小写
-+ (NSString *)md5:(NSString *)str;
+//+ (NSString *)md5:(NSString *)str;
 
 //打乱NSMutableArray顺序
 + (NSMutableArray*)shuffleNSMutableArray:(NSMutableArray*)array;

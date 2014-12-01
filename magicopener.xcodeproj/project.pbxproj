@@ -21,7 +21,6 @@
 		BD3AF20B1A28C42200A3F700 /* MOBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2071A28C42200A3F700 /* MOBusiness.m */; };
 		BD3AF20C1A28C42200A3F700 /* DateIdeaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2091A28C42200A3F700 /* DateIdeaItem.m */; };
 		BD3AF20F1A28E5AA00A3F700 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF20E1A28E5AA00A3F700 /* HistoryViewController.m */; };
-		BD3AF2121A28E5D500A3F700 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2111A28E5D500A3F700 /* MessageView.m */; };
 		BD3AF2181A29A59000A3F700 /* QAPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2171A29A59000A3F700 /* QAPageViewController.m */; };
 		BD3AF21B1A29A5A900A3F700 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF21A1A29A5A900A3F700 /* QADetailViewController.m */; };
 		BDABE1751A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE1741A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m */; };
@@ -31,6 +30,10 @@
 		BDABE1811A2AB5E5003D83B9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE17F1A2AB5E5003D83B9 /* LoginViewController.m */; };
 		BDABE18D1A2B03E5003D83B9 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE1841A2B03E5003D83B9 /* UIBarButtonItem+Badge.m */; };
 		BDABE18E1A2B03E5003D83B9 /* NSObject+DelayBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABE1861A2B03E5003D83B9 /* NSObject+DelayBlock.m */; };
+		BDFE1D4E1A2C130000223521 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFE1D4D1A2C130000223521 /* MessageCell.m */; };
+		BDFE1D511A2C130A00223521 /* ExpertMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFE1D501A2C130A00223521 /* ExpertMessageTableViewCell.m */; };
+		BDFE1D551A2C365F00223521 /* MessageMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFE1D541A2C365F00223521 /* MessageMasterViewController.m */; };
+		BDFE1D591A2C6C2700223521 /* MessageDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFE1D581A2C6C2700223521 /* MessageDetailTableViewController.m */; };
 		E081F91B9175A24E221C9244 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7984C62391385460D40C5F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,8 +78,6 @@
 		BD3AF2091A28C42200A3F700 /* DateIdeaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateIdeaItem.m; sourceTree = "<group>"; };
 		BD3AF20D1A28E5AA00A3F700 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		BD3AF20E1A28E5AA00A3F700 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
-		BD3AF2101A28E5D500A3F700 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
-		BD3AF2111A28E5D500A3F700 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
 		BD3AF2161A29A59000A3F700 /* QAPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAPageViewController.h; sourceTree = "<group>"; };
 		BD3AF2171A29A59000A3F700 /* QAPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAPageViewController.m; sourceTree = "<group>"; };
 		BD3AF2191A29A5A900A3F700 /* QADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QADetailViewController.h; sourceTree = "<group>"; };
@@ -95,6 +96,14 @@
 		BDABE1841A2B03E5003D83B9 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		BDABE1851A2B03E5003D83B9 /* NSObject+DelayBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DelayBlock.h"; sourceTree = "<group>"; };
 		BDABE1861A2B03E5003D83B9 /* NSObject+DelayBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DelayBlock.m"; sourceTree = "<group>"; };
+		BDFE1D4C1A2C130000223521 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		BDFE1D4D1A2C130000223521 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		BDFE1D4F1A2C130A00223521 /* ExpertMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertMessageTableViewCell.h; sourceTree = "<group>"; };
+		BDFE1D501A2C130A00223521 /* ExpertMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertMessageTableViewCell.m; sourceTree = "<group>"; };
+		BDFE1D531A2C365F00223521 /* MessageMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageMasterViewController.h; sourceTree = "<group>"; };
+		BDFE1D541A2C365F00223521 /* MessageMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageMasterViewController.m; sourceTree = "<group>"; };
+		BDFE1D571A2C6C2700223521 /* MessageDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailTableViewController.h; sourceTree = "<group>"; };
+		BDFE1D581A2C6C2700223521 /* MessageDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +167,7 @@
 		BD3AF1BD1A26527F00A3F700 /* magicopener */ = {
 			isa = PBXGroup;
 			children = (
+				BDFE1D561A2C5CED00223521 /* ThirdParty */,
 				BD3AF2131A28E5DF00A3F700 /* Asset */,
 				BD3AF1EE1A265B4200A3F700 /* Manager */,
 				BD3AF1ED1A265B3100A3F700 /* Controller */,
@@ -216,8 +226,10 @@
 		BD3AF1EC1A265B2B00A3F700 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD3AF2101A28E5D500A3F700 /* MessageView.h */,
-				BD3AF2111A28E5D500A3F700 /* MessageView.m */,
+				BDFE1D4F1A2C130A00223521 /* ExpertMessageTableViewCell.h */,
+				BDFE1D501A2C130A00223521 /* ExpertMessageTableViewCell.m */,
+				BDFE1D4C1A2C130000223521 /* MessageCell.h */,
+				BDFE1D4D1A2C130000223521 /* MessageCell.m */,
 				BD3AF1FC1A28C28100A3F700 /* ExpertTableViewCell.h */,
 				BD3AF1FD1A28C28100A3F700 /* ExpertTableViewCell.m */,
 			);
@@ -227,6 +239,7 @@
 		BD3AF1ED1A265B3100A3F700 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BDFE1D521A2C364E00223521 /* Message */,
 				BD3AF1FF1A28C3B200A3F700 /* Expert */,
 				BD3AF1EF1A265B5000A3F700 /* Login */,
 			);
@@ -291,6 +304,24 @@
 				BDABE1861A2B03E5003D83B9 /* NSObject+DelayBlock.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		BDFE1D521A2C364E00223521 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BDFE1D571A2C6C2700223521 /* MessageDetailTableViewController.h */,
+				BDFE1D581A2C6C2700223521 /* MessageDetailTableViewController.m */,
+				BDFE1D531A2C365F00223521 /* MessageMasterViewController.h */,
+				BDFE1D541A2C365F00223521 /* MessageMasterViewController.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		BDFE1D561A2C5CED00223521 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ThirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +468,7 @@
 				BD3AF1F51A265C8900A3F700 /* MOHelper.m in Sources */,
 				BD3AF2181A29A59000A3F700 /* QAPageViewController.m in Sources */,
 				BDABE18E1A2B03E5003D83B9 /* NSObject+DelayBlock.m in Sources */,
+				BDFE1D511A2C130A00223521 /* ExpertMessageTableViewCell.m in Sources */,
 				BDABE1781A29EF10003D83B9 /* SubmitViewController.m in Sources */,
 				BD3AF20C1A28C42200A3F700 /* DateIdeaItem.m in Sources */,
 				BD3AF20F1A28E5AA00A3F700 /* HistoryViewController.m in Sources */,
@@ -444,12 +476,14 @@
 				BDABE18D1A2B03E5003D83B9 /* UIBarButtonItem+Badge.m in Sources */,
 				BDABE1801A2AB5E5003D83B9 /* SignUpViewController.m in Sources */,
 				BDABE1811A2AB5E5003D83B9 /* LoginViewController.m in Sources */,
+				BDFE1D551A2C365F00223521 /* MessageMasterViewController.m in Sources */,
 				BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */,
 				BD3AF20B1A28C42200A3F700 /* MOBusiness.m in Sources */,
 				BD3AF1C11A26527F00A3F700 /* main.m in Sources */,
-				BD3AF2121A28E5D500A3F700 /* MessageView.m in Sources */,
+				BDFE1D4E1A2C130000223521 /* MessageCell.m in Sources */,
 				BD3AF2021A28C3BF00A3F700 /* SelectMyExpertViewController.m in Sources */,
 				BD3AF1FE1A28C28100A3F700 /* ExpertTableViewCell.m in Sources */,
+				BDFE1D591A2C6C2700223521 /* MessageDetailTableViewController.m in Sources */,
 				BDABE1751A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m in Sources */,
 				BD3AF20A1A28C42200A3F700 /* MOExpert.m in Sources */,
 				BD3AF21B1A29A5A900A3F700 /* QADetailViewController.m in Sources */,

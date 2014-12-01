@@ -7,7 +7,6 @@
 //
 
 #import "HistoryViewController.h"
-#import "MessageView.h"
 #import "QAPageViewController.h"
 #import "QADetailViewController.h"
 

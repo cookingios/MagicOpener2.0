@@ -13,7 +13,7 @@
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) NSString *imageName;
 @property (strong,nonatomic) NSString *content;
-@property (strong,nonatomic) NSString *description;
+@property (strong,nonatomic) NSString *remark;
 
 -(instancetype)initWithTitle:(NSString*)title imageName:(NSString*)imageName content:(NSString*)content;
 

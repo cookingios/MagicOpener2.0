@@ -27,6 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (![PFUser currentUser]) {
+        return [self.navigationController performSegueWithIdentifier:@"WelcomeSegue" sender:self];
+    }
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
     
     //获取专家列表
     [[self getExperts] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -37,15 +46,7 @@
             [MOHelper showErrorMessage:@"网络连接错误" inViewController:self];
         }
     }];
-}
-
--(void)viewWillAppear:(BOOL)animated{
     
-    [super viewWillAppear:animated];
-    
-    if (![PFUser currentUser]) {
-        return [self.navigationController performSegueWithIdentifier:@"WelcomeSegue" sender:self];
-    }
     //[MobClick beginLogPageView:@"Helper"];
 }
 
@@ -68,7 +69,8 @@
     PFQuery *query = [PFUser query];
     
     [query whereKey:@"isExpert" equalTo:[NSNumber numberWithBool:YES]];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    query.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    query.maxCacheAge = 60 * 60 * 24;
     [query orderByAscending:@"createdAt"];
     return query;
 }
