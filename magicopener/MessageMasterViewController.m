@@ -159,7 +159,6 @@
         }else{
             [self performSegueWithIdentifier:@"ExpertMessageEventDetailView" sender:self];
         }
-        
     }
 }
 

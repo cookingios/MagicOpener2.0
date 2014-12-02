@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BD1F47BE1A2CBB2C004717C3 /* EXPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */; };
 		BD1F7C7F1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F7C7E1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m */; };
+		BD1F7C831A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F7C821A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.m */; };
+		BD1F7C861A2E21E4004BE3D6 /* LoadMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F7C851A2E21E4004BE3D6 /* LoadMoreCell.m */; };
+		BD1F7C891A2E21EE004BE3D6 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F7C881A2E21EE004BE3D6 /* ArticleCell.m */; };
+		BD1F7C8C1A2E2643004BE3D6 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F7C8B1A2E2643004BE3D6 /* ArticleDetailViewController.m */; };
 		BD3AF1C11A26527F00A3F700 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF1C01A26527F00A3F700 /* main.m */; };
 		BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF1C31A26527F00A3F700 /* AppDelegate.m */; };
 		BD3AF1CD1A26527F00A3F700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF1CB1A26527F00A3F700 /* Main.storyboard */; };
@@ -57,6 +61,14 @@
 		BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXPhotoViewer.m; sourceTree = "<group>"; };
 		BD1F7C7D1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertMessageDetailTableViewController.h; sourceTree = "<group>"; };
 		BD1F7C7E1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertMessageDetailTableViewController.m; sourceTree = "<group>"; };
+		BD1F7C811A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleMasterViewControllerTableViewController.h; sourceTree = "<group>"; };
+		BD1F7C821A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleMasterViewControllerTableViewController.m; sourceTree = "<group>"; };
+		BD1F7C841A2E21E4004BE3D6 /* LoadMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreCell.h; sourceTree = "<group>"; };
+		BD1F7C851A2E21E4004BE3D6 /* LoadMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreCell.m; sourceTree = "<group>"; };
+		BD1F7C871A2E21EE004BE3D6 /* ArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
+		BD1F7C881A2E21EE004BE3D6 /* ArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
+		BD1F7C8A1A2E2643004BE3D6 /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
+		BD1F7C8B1A2E2643004BE3D6 /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
 		BD3AF1BB1A26527F00A3F700 /* magicopener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicopener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3AF1BF1A26527F00A3F700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD3AF1C01A26527F00A3F700 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -159,6 +171,17 @@
 			path = EXPhotoViewer;
 			sourceTree = "<group>";
 		};
+		BD1F7C801A2E218F004BE3D6 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				BD1F7C811A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.h */,
+				BD1F7C821A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.m */,
+				BD1F7C8A1A2E2643004BE3D6 /* ArticleDetailViewController.h */,
+				BD1F7C8B1A2E2643004BE3D6 /* ArticleDetailViewController.m */,
+			);
+			name = Article;
+			sourceTree = "<group>";
+		};
 		BD3AF1B21A26527F00A3F700 = {
 			isa = PBXGroup;
 			children = (
@@ -241,12 +264,16 @@
 		BD3AF1EC1A265B2B00A3F700 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD1F7C841A2E21E4004BE3D6 /* LoadMoreCell.h */,
+				BD1F7C851A2E21E4004BE3D6 /* LoadMoreCell.m */,
 				BDFE1D4F1A2C130A00223521 /* ExpertMessageTableViewCell.h */,
 				BDFE1D501A2C130A00223521 /* ExpertMessageTableViewCell.m */,
 				BDFE1D4C1A2C130000223521 /* MessageCell.h */,
 				BDFE1D4D1A2C130000223521 /* MessageCell.m */,
 				BD3AF1FC1A28C28100A3F700 /* ExpertTableViewCell.h */,
 				BD3AF1FD1A28C28100A3F700 /* ExpertTableViewCell.m */,
+				BD1F7C871A2E21EE004BE3D6 /* ArticleCell.h */,
+				BD1F7C881A2E21EE004BE3D6 /* ArticleCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -254,6 +281,7 @@
 		BD3AF1ED1A265B3100A3F700 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BD1F7C801A2E218F004BE3D6 /* Article */,
 				BDFE1D521A2C364E00223521 /* Message */,
 				BD3AF1FF1A28C3B200A3F700 /* Expert */,
 				BD3AF1EF1A265B5000A3F700 /* Login */,
@@ -485,7 +513,9 @@
 			files = (
 				BD3AF1F51A265C8900A3F700 /* MOHelper.m in Sources */,
 				BD3AF2181A29A59000A3F700 /* QAPageViewController.m in Sources */,
+				BD1F7C8C1A2E2643004BE3D6 /* ArticleDetailViewController.m in Sources */,
 				BD1F7C7F1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m in Sources */,
+				BD1F7C831A2E2199004BE3D6 /* ArticleMasterViewControllerTableViewController.m in Sources */,
 				BDABE18E1A2B03E5003D83B9 /* NSObject+DelayBlock.m in Sources */,
 				BDFE1D511A2C130A00223521 /* ExpertMessageTableViewCell.m in Sources */,
 				BDABE1781A29EF10003D83B9 /* SubmitViewController.m in Sources */,
@@ -496,6 +526,7 @@
 				BDABE1801A2AB5E5003D83B9 /* SignUpViewController.m in Sources */,
 				BD1F47BE1A2CBB2C004717C3 /* EXPhotoViewer.m in Sources */,
 				BDABE1811A2AB5E5003D83B9 /* LoginViewController.m in Sources */,
+				BD1F7C861A2E21E4004BE3D6 /* LoadMoreCell.m in Sources */,
 				BDFE1D551A2C365F00223521 /* MessageMasterViewController.m in Sources */,
 				BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */,
 				BD3AF20B1A28C42200A3F700 /* MOBusiness.m in Sources */,
@@ -504,6 +535,7 @@
 				BD3AF2021A28C3BF00A3F700 /* SelectMyExpertViewController.m in Sources */,
 				BD3AF1FE1A28C28100A3F700 /* ExpertTableViewCell.m in Sources */,
 				BDFE1D591A2C6C2700223521 /* MessageDetailTableViewController.m in Sources */,
+				BD1F7C891A2E21EE004BE3D6 /* ArticleCell.m in Sources */,
 				BDABE1751A29E42E003D83B9 /* SelectQuestionTypeTableViewController.m in Sources */,
 				BD3AF20A1A28C42200A3F700 /* MOExpert.m in Sources */,
 				BD3AF21B1A29A5A900A3F700 /* QADetailViewController.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "ExpertMessageDetailTableViewController.h"
 #import <UIImageView+WebCache.h>
+#import <BlocksKit+UIKit.h>
+#import "EXPhotoViewer.h"
 
 
 @interface ExpertMessageDetailTableViewController ()
@@ -35,15 +37,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:YES];
-    
-    self.questionLabel.text = [NSString stringWithFormat:@"\"%@\"", [self.message objectForKey:@"problem"]];
+    //图片缩放
+    if ([self.message objectForKey:@"screenshot"]) {
+        [self.questionImageView sd_setImageWithURL:[NSURL URLWithString:[(PFFile *)[self.message objectForKey:@"screenshot"] url]]];
+        UITapGestureRecognizer *tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+            [EXPhotoViewer showImageFrom:self.questionImageView];
+        }];
+        [self.questionImageView addGestureRecognizer:tap];
+    }
+    //message
+    self.questionLabel.text = @"";
+    if ([self.message objectForKey:@"problem"]) {
+        self.questionLabel.text = [NSString stringWithFormat:@"\"%@\"", [self.message objectForKey:@"problem"]];
+    }
     self.inputTextView.text = [self.message objectForKey:@"reply"];
     [self.questionImageView sd_setImageWithURL:[NSURL URLWithString:[(PFFile *)[self.message objectForKey:@"screenshot"] url]]];
     
@@ -55,43 +61,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSMutableParagraphStyle *pStyle = [[NSMutableParagraphStyle alloc] init];
-    pStyle.lineSpacing = 3;
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:17.0f],NSParagraphStyleAttributeName:pStyle};
-    //Question cell 高度
-    CGRect rect2 = [self.questionLabel.text boundingRectWithSize:CGSizeMake(165, MAXFLOAT)
-                                                         options:NSStringDrawingUsesLineFragmentOrigin
-                                                      attributes:attributes
-                                                         context:nil];
-
-    NSUInteger index = indexPath.row;
-    switch (index) {
-        case 0:
-            // Get the string of text from each comment
-            if (rect2.size.height<138) {
-                return 152;
-            }else{
-                return 14 + rect2.size.height;
-            }
-            break;
-        case 1:
-            // Get the string of text from each comment
-            return 152;
-            break;
-        case 2:
-            return 64.0f;
-            break;
-            
-            
-        default:
-            return 64.0f;
-            break;
-    }
-    
-    
-}
 
 - (IBAction)submitAnswer:(id)sender {
     
