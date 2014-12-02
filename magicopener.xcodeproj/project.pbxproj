@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD1F47BE1A2CBB2C004717C3 /* EXPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */; };
+		BD1F7C7F1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1F7C7E1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m */; };
 		BD3AF1C11A26527F00A3F700 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF1C01A26527F00A3F700 /* main.m */; };
 		BD3AF1C41A26527F00A3F700 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF1C31A26527F00A3F700 /* AppDelegate.m */; };
 		BD3AF1CD1A26527F00A3F700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF1CB1A26527F00A3F700 /* Main.storyboard */; };
@@ -54,6 +55,8 @@
 		B3979BDC1DB7491C2888CCE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BD1F47BC1A2CBB2B004717C3 /* EXPhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXPhotoViewer.h; sourceTree = "<group>"; };
 		BD1F47BD1A2CBB2B004717C3 /* EXPhotoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXPhotoViewer.m; sourceTree = "<group>"; };
+		BD1F7C7D1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertMessageDetailTableViewController.h; sourceTree = "<group>"; };
+		BD1F7C7E1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertMessageDetailTableViewController.m; sourceTree = "<group>"; };
 		BD3AF1BB1A26527F00A3F700 /* magicopener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicopener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3AF1BF1A26527F00A3F700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD3AF1C01A26527F00A3F700 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 		BDFE1D521A2C364E00223521 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				BD1F7C7D1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.h */,
+				BD1F7C7E1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m */,
 				BDFE1D571A2C6C2700223521 /* MessageDetailTableViewController.h */,
 				BDFE1D581A2C6C2700223521 /* MessageDetailTableViewController.m */,
 				BDFE1D531A2C365F00223521 /* MessageMasterViewController.h */,
@@ -480,6 +485,7 @@
 			files = (
 				BD3AF1F51A265C8900A3F700 /* MOHelper.m in Sources */,
 				BD3AF2181A29A59000A3F700 /* QAPageViewController.m in Sources */,
+				BD1F7C7F1A2CDA2E004BE3D6 /* ExpertMessageDetailTableViewController.m in Sources */,
 				BDABE18E1A2B03E5003D83B9 /* NSObject+DelayBlock.m in Sources */,
 				BDFE1D511A2C130A00223521 /* ExpertMessageTableViewCell.m in Sources */,
 				BDABE1781A29EF10003D83B9 /* SubmitViewController.m in Sources */,
