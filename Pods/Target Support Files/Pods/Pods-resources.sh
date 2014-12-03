@@ -44,6 +44,14 @@ install_resource()
   esac
 }
           install_resource "IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle"
+                    install_resource "TOWebViewController/TOWebViewController/de.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/en.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/es.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/ja.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/ko.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/pl.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/zh-Hans.lproj"
+                    install_resource "TOWebViewController/TOWebViewController/zh-Hant.lproj"
                     install_resource "TSMessages/Pod/Assets/NotificationBackgroundError.png"
                     install_resource "TSMessages/Pod/Assets/NotificationBackgroundError@2x.png"
                     install_resource "TSMessages/Pod/Assets/NotificationBackgroundErrorIcon.png"

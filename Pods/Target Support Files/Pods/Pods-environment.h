@@ -134,6 +134,12 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
+// TOWebViewController
+#define COCOAPODS_POD_AVAILABLE_TOWebViewController
+#define COCOAPODS_VERSION_MAJOR_TOWebViewController 2
+#define COCOAPODS_VERSION_MINOR_TOWebViewController 0
+#define COCOAPODS_VERSION_PATCH_TOWebViewController 14
+
 // TSMessages
 #define COCOAPODS_POD_AVAILABLE_TSMessages
 #define COCOAPODS_VERSION_MAJOR_TSMessages 0

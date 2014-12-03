@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6842ACDD27203609962936FA"
+               BlueprintIdentifier = "749C2518B96228E835237609"
                BuildableName = "libPods-FaceAwareFill.a"
                BlueprintName = "Pods-FaceAwareFill"
                ReferencedContainer = "container:Pods.xcodeproj">

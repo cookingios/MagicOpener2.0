@@ -38,6 +38,7 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.1)
+  - TOWebViewController (2.0.14)
   - TSMessages (0.9.11):
     - HexColors
 
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - pop
   - RateView
   - SDWebImage
+  - TOWebViewController
   - TSMessages
 
 SPEC CHECKSUMS:
@@ -71,6 +73,7 @@ SPEC CHECKSUMS:
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   RateView: 4142c146bd42fe7715adc3365fa2ffd71ff327e0
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  TOWebViewController: d3eee5342e5f8508cc87107c96544f5dff01b802
   TSMessages: e21ef5b1c7518cc590a4826c8b05b16b79b10c2c
 
 COCOAPODS: 0.34.4
