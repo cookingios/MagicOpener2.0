@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FaceppAPI.h"
+
 
 @interface AppDelegate ()
 
@@ -22,6 +24,18 @@
                   clientKey:@"i28vvdncRQOzvLg7MqC4EYTXOyAChThecuC5D2Dm"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    //Mobclick
+    //[MobClick startWithAppkey:@"5394383a56240b4ed102115a" reportPolicy:SEND_INTERVAL   channelId:@"APP Store"];
+    
+    
+    //NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    //[MobClick setAppVersion:version];
+    
+    //FacePP API
+    [FaceppAPI initWithApiKey:@"87d3930c16fb8344c92b5ff8112aaf49" andApiSecret:@"GqqSTgSt611FzDN2j1Qh9fbv_Q2kgMh1"
+andRegion:APIServerRegionCN];
+    
+    [FaceppAPI setDebugMode:YES];
     
     //PUSH Notification
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
