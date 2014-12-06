@@ -31,6 +31,15 @@
     return self;
 }
 
-
+-(void)refreshCurrentCofig{
+    
+    const NSTimeInterval configRefreshInterval = 12.0 * 60.0 * 60.0;
+    static NSDate *lastFetchedDate;
+    if (lastFetchedDate == nil ||
+        [lastFetchedDate timeIntervalSinceNow] * -1.0 > configRefreshInterval) {
+        [PFConfig getConfigInBackgroundWithBlock:nil];
+        lastFetchedDate = [NSDate date];
+    }
+}
 
 @end

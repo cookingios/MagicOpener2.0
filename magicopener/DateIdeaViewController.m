@@ -19,14 +19,15 @@
 
 @interface DateIdeaViewController ()<DPRequestDelegate,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *relationshipTypeSegment;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (readonly,nonatomic) DPAPI *dpApi;
 @property (strong,nonatomic) MOBusiness *currentBusiness;
 @property (strong,nonatomic) NSArray *datasource;
 @property (strong,nonatomic) PFGeoPoint *currentGeoPoint;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *relationshipTypeSegment;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (strong,nonatomic) CLLocationManager* locationManager;
+
 
 - (IBAction)refreshDatePlan:(id)sender;
 
@@ -69,19 +70,7 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.activityType = CLActivityTypeOther;
-    
-    // Do any additional setup after loading the view.
-    /*
-     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-     if (!error) {
-     // do something with the new geoPoint
-     self.currentGeoPoint = geoPoint;
-     }else{
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"无法获取地理位置信息" message:@"请前往设置打开该选项" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-     [alert show];
-     }
-     }];
-     */
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -94,6 +83,11 @@
     [self.refreshButton addTarget:self action:@selector(scaleToDefault)
                  forControlEvents:UIControlEventTouchDragExit];
     
+    if (![PFConfig currentConfig]) {
+        [MOHelper showErrorMessage:@"网络连接出现问题,万能约会机暂停工作,需重启应用再试试" inViewController:self];
+        self.refreshButton.enabled = NO;
+    }
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -245,20 +239,20 @@
     switch (index) {
         case 0:
             [queryTopic whereKey:@"type" equalTo:@"first"];
-            count = 26;
+            count = [[PFConfig currentConfig][@"dateIdeaFirstRelationTopicCount"] intValue];
             break;
         case 1:
             [queryTopic whereKey:@"type" equalTo:@"friend"];
-            count = 21;
+            count = [[PFConfig currentConfig][@"dateIdeaFriendRelationTopicCount"] intValue];
             break;
         case 2:
             [queryTopic whereKey:@"type" equalTo:@"hot"];
-            count = 10;
+            [[PFConfig currentConfig][@"dateIdeaHotRelationTopicCount"] intValue];
             break;
             
         default:
             [queryTopic whereKey:@"type" equalTo:@"first"];
-            count = 26;
+            [[PFConfig currentConfig][@"dateIdeaFirstRelationTopicCount"] intValue];
             break;
     }
     int random = arc4random() % count;
@@ -288,14 +282,16 @@
         [(DateIdeaItem*)self.datasource[0] setRemark:self.currentBusiness.address];
         
         //开场白
-        int random3 = arc4random() % 16;
+        int openersCount = [[PFConfig currentConfig][@"dateIdeaOpenerCount"] intValue];
+        int random3 = arc4random() % openersCount;
         PFQuery *queryOpener = [PFQuery queryWithClassName:@"Opener"];
         [queryOpener whereKey:@"scene" equalTo:@"date"];
         queryOpener.skip = random3;
         queryOpener.limit = 1;
         
         //互动点子
-        int random4 = arc4random() % 24;
+        int interactionCount = [[PFConfig currentConfig][@"dateIdeaInteractionCount"] intValue];
+        int random4 = arc4random() % interactionCount;
         PFQuery *queryInteract = [PFQuery queryWithClassName:@"DateIdea"];
         [queryInteract whereKey:@"available" equalTo:[NSNumber numberWithBool:YES]];
         queryInteract.skip = random4;

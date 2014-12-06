@@ -14,5 +14,5 @@
 @property (readonly,nonatomic) DPAPI *dpApi;
 
 + (instancetype)sharedManager;
-
+- (void)refreshCurrentCofig;
 @end

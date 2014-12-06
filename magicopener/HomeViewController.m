@@ -58,17 +58,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectImage)];
-    [self.avatarImageView addGestureRecognizer:tap];
-    //[self getOpeners];
-    
-    self.duplicateButton.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
     //[MobClick beginLogPageView:@"Opener"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectImage)];
+    [self.avatarImageView addGestureRecognizer:tap];
+    
     [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         NSLog(@"life remain %@",[[PFUser currentUser] objectForKey:@"freeChance"]);
     }];
@@ -77,6 +75,13 @@
     self.duplicateButton.layer.masksToBounds = YES;
     self.duplicateButton.layer.borderWidth = 1.0f;
     self.duplicateButton.layer.borderColor = [[UIColor grayColor] CGColor];
+    
+    if (![PFConfig currentConfig]) {
+        [MOHelper showErrorMessage:@"网络连接出现问题,智能开场白暂停工作,需重启应用再试试" inViewController:self];
+        [self.avatarImageView removeGestureRecognizer:tap];
+    }
+
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -94,26 +99,16 @@
 
 #pragma mark - 复制
 - (IBAction)duplicateOpener:(id)sender {
-        /*
+    
     //复制到黏贴板
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = [self.dataSource[self.swipeView.currentItemIndex] objectForKey:@"opener"];
+    pasteboard.string = [self.dataSource[self.pageControl.currentPage] objectForKey:@"opener"];
     
-    hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    hud.mode = MBProgressHUDModeCustomView;
-	hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-	hud.delegate = self;
-    
-    hud.labelText = @"已复制到剪切板";
-    
-    [self.navigationController.view addSubview:hud];
-	
-	[hud show:YES];
-	[hud hide:YES afterDelay:2];
+    [MOHelper showSuccessMessage:@"已复制到剪切板,马上去微信或陌陌试试吧" inViewController:self];
     
     NSDictionary *dict = @{@"opener":pasteboard.string,@"type":@"picture"};
     //[MobClick event:@"DuplicateOpener" attributes:dict];
-        */
+    
 }
 
 
@@ -121,8 +116,7 @@
     NSString *title = [NSString stringWithFormat:@"剩余次数:%@",[[PFUser currentUser] objectForKey:@"freeChance"]];
     if ([[[PFUser currentUser] objectForKey:@"freeChance"] isEqualToNumber:@0]) {
         //alertview 提示
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"本日次数已用完" message:@"每日6次机会,凌晨12时前后更新." delegate:nil cancelButtonTitle:@"好的,我知道了" otherButtonTitles: nil];
-        return [alert show];
+        [MOHelper showErrorMessage:@"本日次数已用完(每日6次机会,凌晨12时前后更新)." inViewController:self];
     }else if(![[PFUser currentUser] objectForKey:@"freeChance"]){
         title = @"剩余次数:获取中";
     }
@@ -244,7 +238,8 @@
     [queryLow whereKey:@"rate" lessThan:@3];
     [queryLow whereKey:@"available" equalTo:[NSNumber numberWithBool:YES]];
     [queryLow whereKey:@"scene" equalTo:@"sns"];
-    queryLow.skip = random % 25;
+    int lowOpenerCount = [[PFConfig currentConfig][@"lowOpenerCount"] intValue];
+    queryLow.skip = random % lowOpenerCount;
     queryLow.limit = 1;
     
     PFQuery *queryMedium = [PFQuery queryWithClassName:@"Opener"];
@@ -252,14 +247,16 @@
     [queryMedium whereKey:@"rate" greaterThan:@2];
     [queryMedium whereKey:@"available" equalTo:[NSNumber numberWithBool:YES]];
     [queryMedium whereKey:@"scene" equalTo:@"sns"];
-    queryMedium.skip = random % 44;
+    int mediumOpenerCount = [[PFConfig currentConfig][@"mediumOpenerCount"] intValue];
+    queryMedium.skip = random % mediumOpenerCount;
     queryMedium.limit = 1;
     
     PFQuery *queryHigh = [PFQuery queryWithClassName:@"Opener"];
     [queryHigh whereKey:@"rate" equalTo:@5];
     [queryHigh whereKey:@"available" equalTo:[NSNumber numberWithBool:YES]];
     [queryHigh whereKey:@"scene" equalTo:@"sns"];
-    queryHigh.skip = random % 26;
+    int highOpenerCount = [[PFConfig currentConfig][@"highOpenerCount"] intValue];
+    queryHigh.skip = random % highOpenerCount;
     queryHigh.limit = 1;
     
     NSMutableArray *ds = [NSMutableArray array];
