@@ -27,16 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (![PFUser currentUser]) {
-        return [self.navigationController performSegueWithIdentifier:@"WelcomeSegue" sender:self];
-    }
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    
     //获取专家列表
     [[self getExperts] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -47,6 +37,15 @@
         }
     }];
     
+    if (![PFUser currentUser]) {
+        return [self.navigationController performSegueWithIdentifier:@"WelcomeSegue" sender:self];
+    }
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
     //[MobClick beginLogPageView:@"Helper"];
 }
 
@@ -69,9 +68,9 @@
     PFQuery *query = [PFUser query];
     
     [query whereKey:@"isExpert" equalTo:[NSNumber numberWithBool:YES]];
-    query.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     query.maxCacheAge = 60 * 60 * 24;
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     return query;
 }
 
@@ -80,11 +79,14 @@
 #pragma mark - interaction
 - (IBAction)reviewEditorPicks:(id)sender {
 
-    self.hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:self.hud];
-    [self.hud show:YES];
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:15.0f target:self selector:@selector(handleHudTimeout) userInfo:nil repeats:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [self performBlock:^{
+        if (!hud.hidden) {
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"网络连接出现问题";
+            [hud hide:YES afterDelay:2];
+        }
+    } afterDelay:15];
     
     //获取当前expert
     UITableViewCell * cell = (UITableViewCell *)[[sender superview] superview];
@@ -99,8 +101,7 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            [timer invalidate];
-            [self.hud removeFromSuperview];
+            [hud removeFromSuperview];
             self.editorsPicks = [NSArray arrayWithArray:objects];
             [self performSegueWithIdentifier:@"EditorsPicksSegue" sender:self];
         }
@@ -119,14 +120,15 @@
     ExpertTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExpertTableViewCell" forIndexPath:indexPath];
     
     PFObject *object = self.experts[indexPath.row];
-    [object[@"avatar"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+    [object[@"thumbnail"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             cell.avatarImageView.image = [UIImage imageWithData:data];
         }
     }];
     cell.nameLabel.text = object[@"displayName"];
     cell.descriptionLabel.text = object[@"expertDescription"];
-    
+    cell.beginnerLabel.hidden = [object[@"expertStatus"] isEqualToString:@"new"]?NO:YES;
+    cell.editorsPickedButton.hidden = [object[@"expertStatus"] isEqualToString:@"new"]?YES:NO;
     return cell;
     
     
@@ -155,11 +157,5 @@
     }
 }
 
-- (void)handleHudTimeout{
-    
-    self.hud.mode = MBProgressHUDModeText;
-	self.hud.labelText = @"网络连接有问题";
-    [self.hud hide:YES afterDelay:3];
-}
 
 @end

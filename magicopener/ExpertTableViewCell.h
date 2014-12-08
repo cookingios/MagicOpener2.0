@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *editorsPickedButton;
+@property (weak, nonatomic) IBOutlet UILabel *beginnerLabel;
 
 @end

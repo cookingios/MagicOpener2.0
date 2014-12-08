@@ -16,7 +16,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Override point for customization after application launch.
@@ -74,27 +73,31 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    if (![[PFUser currentUser] objectForKey:@"isExpert"]){
-        //user badge 打开即消失
-        if (currentInstallation.badge != 0) {
-            currentInstallation.badge = 0;
-            [currentInstallation saveEventually];
-        }
-    }else{
-        //expert 的badge一直保留
-        PFQuery *query = [PFQuery queryWithClassName:@"Message"];
-        [query whereKey:@"expert" equalTo:[PFUser currentUser]];
-        [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:NO]];
-        [query setCachePolicy:kPFCachePolicyNetworkOnly];
-        [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
-            if (!error) {
-                // The count request succeeded. Log the count
-                currentInstallation.badge = count;
+    /*
+    if ([PFUser currentUser]) {
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        if (![[PFUser currentUser] objectForKey:@"isExpert"]){
+            //user badge 打开即消失
+            if (currentInstallation.badge != 0) {
+                currentInstallation.badge = 0;
                 [currentInstallation saveEventually];
             }
-        }];
+        }else{
+            //expert 的badge一直保留
+            PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+            [query whereKey:@"expert" equalTo:[PFUser currentUser]];
+            [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:NO]];
+            [query setCachePolicy:kPFCachePolicyNetworkOnly];
+            [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+                if (!error) {
+                    // The count request succeeded. Log the count
+                    currentInstallation.badge = count;
+                    [currentInstallation saveEventually];
+                }
+            }];
+        }
     }
+ */
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

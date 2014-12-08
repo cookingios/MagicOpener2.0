@@ -47,6 +47,8 @@
     [super viewWillAppear:animated];
     //[MobClick beginLogPageView:@"MessageList"];
     
+    [self loadObjects];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -64,33 +66,32 @@
 
 #pragma mark - Table view data source
 - (PFQuery *)queryForTable {
-    if (![[PFUser currentUser] objectForKey:@"isExpert"]) {
-        //一般用户
-        PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-        [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-        [query includeKey:@"expert"];
-        [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:YES]];
-        [query orderByDescending:@"createdAt"];
-        [query setCachePolicy:kPFCachePolicyNetworkOnly];
-        if ([self.objects count] == 0) {
+    if ([PFUser currentUser]) {
+        if (![[PFUser currentUser] objectForKey:@"isExpert"]) {
+            //一般用户
+            PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+            [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+            [query includeKey:@"expert"];
+            [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:YES]];
+            [query orderByDescending:@"createdAt"];
             query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-        }
-        return query;
-    }else{
-        //expert
-        PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-        [query whereKey:@"expert" equalTo:[PFUser currentUser]];
-        [query includeKey:@"fromUser"];
-        [query includeKey:@"expert"];
-        [query orderByAscending:@"isReplyed"];
-        [query addDescendingOrder:@"createdAt"];
-        [query setCachePolicy:kPFCachePolicyNetworkOnly];
-        if ([self.objects count] == 0) {
+            query.maxCacheAge = 60;
+        
+            return query;
+        }else{
+            //expert
+            PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+            [query whereKey:@"expert" equalTo:[PFUser currentUser]];
+            [query includeKey:@"fromUser"];
+            [query includeKey:@"expert"];
+            [query orderByAscending:@"isReplyed"];
+            [query addDescendingOrder:@"createdAt"];
             query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            query.maxCacheAge = 60;
+            
+            return query;
         }
-        return query;
-       
-    }
+    }else return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -112,7 +113,7 @@
         PFFile *thumbFile;
         NSString *expert = [[object objectForKey:@"expert"] objectForKey:@"displayName"];
         cell.nameLabel.text = expert;
-        thumbFile = [[object objectForKey:@"expert"] objectForKey:@"avatar"];
+        thumbFile = [[object objectForKey:@"expert"] objectForKey:@"thumbnail"];
         [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[thumbFile url]] placeholderImage:nil];
         cell.createAtLabel.text = [MOHelper stringFromDate:[object createdAt]];
         NSString *content = [object objectForKey:@"reply"];
@@ -161,7 +162,6 @@
         }
     }
 }
-
 
 #pragma mark - Navigation
 // In a story board-based application, you will often want to do a little preparation before navigation
