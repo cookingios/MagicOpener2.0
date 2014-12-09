@@ -89,9 +89,7 @@
     } afterDelay:15];
     
     //获取当前expert
-    UITableViewCell * cell = (UITableViewCell *)[[sender superview] superview];
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    self.currentExpert = self.experts[indexPath.row];
+    self.currentExpert = self.experts[[sender tag]];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Message"];
     [query whereKey:@"expert" equalTo:self.currentExpert];
@@ -129,6 +127,7 @@
     cell.descriptionLabel.text = object[@"expertDescription"];
     cell.beginnerLabel.hidden = [object[@"expertStatus"] isEqualToString:@"new"]?NO:YES;
     cell.editorsPickedButton.hidden = [object[@"expertStatus"] isEqualToString:@"new"]?YES:NO;
+    cell.editorsPickedButton.tag = indexPath.row;
     return cell;
     
     
