@@ -189,6 +189,7 @@
                                                 NSLog(@"注册成功,增加生命");
                                             }
                                         }];
+            [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSString *errorString = @"";
             if ([error code] == kPFErrorUsernameTaken) {
