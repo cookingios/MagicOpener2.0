@@ -24,11 +24,11 @@
                                 <rect key="frame" x="0.0" y="64" width="607" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="YyQ-re-ctJ">
-                                    <rect key="frame" x="0.0" y="142" width="607" height="40"/>
+                                    <rect key="frame" x="0.0" y="142" width="607" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOz-ri-0l4">
-                                            <rect key="frame" x="230" y="5" width="146" height="30"/>
+                                            <rect key="frame" x="230" y="12" width="146" height="30"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Fha-UG-UlA"/>
@@ -48,13 +48,13 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="KOz-ri-0l4" firstAttribute="top" secondItem="YyQ-re-ctJ" secondAttribute="top" constant="5" id="1NS-mO-WKN"/>
-                                        <constraint firstAttribute="centerY" secondItem="KOz-ri-0l4" secondAttribute="centerY" id="OZK-Rd-wBH"/>
+                                        <constraint firstItem="KOz-ri-0l4" firstAttribute="top" secondItem="YyQ-re-ctJ" secondAttribute="top" constant="12" id="1NS-mO-WKN"/>
+                                        <constraint firstAttribute="centerY" secondItem="KOz-ri-0l4" secondAttribute="centerY" constant="-2" id="OZK-Rd-wBH"/>
                                         <constraint firstAttribute="centerX" secondItem="KOz-ri-0l4" secondAttribute="centerX" constant="0.5" id="wAO-VI-MUq"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpertTableViewCell" rowHeight="120" id="bh7-UY-m5X" customClass="ExpertTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpertTableViewCell" rowHeight="120" id="bh7-UY-m5X" customClass="ExpertTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bh7-UY-m5X" id="2NK-Ce-cPv">
                                             <autoresizingMask key="autoresizingMask"/>
