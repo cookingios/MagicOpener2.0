@@ -74,8 +74,10 @@
             [query includeKey:@"expert"];
             [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:YES]];
             [query orderByDescending:@"createdAt"];
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-            query.maxCacheAge = 60;
+            [query setCachePolicy:kPFCachePolicyNetworkOnly];
+            if ([self.objects count] == 0) {
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            }
         
             return query;
         }else{
@@ -86,8 +88,10 @@
             [query includeKey:@"expert"];
             [query orderByAscending:@"isReplyed"];
             [query addDescendingOrder:@"createdAt"];
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-            query.maxCacheAge = 60;
+            [query setCachePolicy:kPFCachePolicyNetworkOnly];
+            if ([self.objects count] == 0) {
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            }
             
             return query;
         }

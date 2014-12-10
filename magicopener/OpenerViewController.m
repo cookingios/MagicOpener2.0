@@ -34,7 +34,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rotateOpenerImageView:)];
     [self.roundImageView addGestureRecognizer:tap];
     
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor lightGrayColor];
+    //self.navigationItem.leftBarButtonItem.tintColor = [UIColor lightGrayColor];
     
 }
 

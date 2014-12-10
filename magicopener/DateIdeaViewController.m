@@ -94,8 +94,7 @@
     
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self startTrackingLocation];
-    }
-    else {
+    }else {
         [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
             if (!error) {
                 // do something with the new geoPoint
@@ -126,8 +125,7 @@
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     if (status == kCLAuthorizationStatusNotDetermined) {
         [self.locationManager requestWhenInUseAuthorization];
-    }
-    else if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways) {
+    }else if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways) {
         //[self.locationManager startUpdatingLocation];
         [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
             if (!error) {
@@ -394,7 +392,9 @@
             [self startTrackingLocation];
             break;
         case kCLAuthorizationStatusNotDetermined:
-            [self.locationManager requestWhenInUseAuthorization];
+            if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+                [self startTrackingLocation];
+            }
         default:
             break;
     }
