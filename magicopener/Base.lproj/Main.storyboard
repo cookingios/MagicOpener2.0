@@ -1298,7 +1298,7 @@
         <!--Article Detail View Controller-->
         <scene sceneID="8FE-cf-A0G">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="UBW-a3-dGA" customClass="ArticleDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDetailViewController" hidesBottomBarWhenPushed="YES" id="UBW-a3-dGA" customClass="ArticleDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dp8-3V-3qt"/>
                         <viewControllerLayoutGuide type="bottom" id="Kv3-nc-UO2"/>
@@ -2268,7 +2268,7 @@
         <!--专栏-->
         <scene sceneID="p61-tQ-0O5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fgk-JU-lMp" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ArticleNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fgk-JU-lMp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="专栏" image="tabbar-icon-article60" id="OzP-eS-1aP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a9z-U6-aUH">

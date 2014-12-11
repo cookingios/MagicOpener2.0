@@ -10,6 +10,7 @@
 #import "FaceppAPI.h"
 #import "MOManager.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -17,13 +18,12 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // Override point for customization after application launch.
+    //Parse
     [Parse setApplicationId:@"uVNIxVLBvUWvVtLaFhMquaYZR2Tqje84YwcQ63i6"
                   clientKey:@"i28vvdncRQOzvLg7MqC4EYTXOyAChThecuC5D2Dm"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    //parse config
+    
     [[MOManager sharedManager] refreshCurrentCofig];
     
     //Mobclick
@@ -38,22 +38,40 @@
     
     [FaceppAPI setDebugMode:YES];
     
-    //PUSH Notification
+    //Push Notification Settings
+    //iOS8.0或以上
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
     {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings
-                                                                             settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
-                                                                             categories:nil]];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                        UIUserNotificationTypeBadge |
+                                                        UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                 categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
     }
     else
     {
-        //这里还是原来的代码
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+        //iOS7.0及以下
+        [application registerForRemoteNotificationTypes:
          (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
     }
 
-    
+    //Receive Push Notification
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    //打开性情专栏文章
+    NSString *htmlContent = notificationPayload[@"htmlContent"];
+    if (htmlContent&&[PFUser currentUser]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        
+        self.window.rootViewController = tabBarController;
+        [tabBarController setSelectedIndex:2];
+        UIViewController *webViewController = [storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+        [webViewController setValue:htmlContent forKey:@"htmlContent"];
+        [(UINavigationController*)tabBarController.selectedViewController pushViewController:webViewController animated:YES];
+    }
+
     return YES;
 }
 
@@ -73,7 +91,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    /*
     if ([PFUser currentUser]) {
         PFInstallation *currentInstallation = [PFInstallation currentInstallation];
         if (![[PFUser currentUser] objectForKey:@"isExpert"]){
@@ -97,7 +114,6 @@
             }];
         }
     }
- */
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -119,8 +135,18 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-    //[[MOManager sharedManager] getUnreadMessageCount];
+    //打开性情专栏文章
+    NSString *htmlContent = userInfo[@"htmlContent"];
+    if (htmlContent&&[PFUser currentUser]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        
+        self.window.rootViewController = tabBarController;
+        [tabBarController setSelectedIndex:2];
+        UIViewController *webViewController = [storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+        [webViewController setValue:htmlContent forKey:@"htmlContent"];
+        [(UINavigationController*)tabBarController.selectedViewController pushViewController:webViewController animated:YES];
+    }
     
 }
 

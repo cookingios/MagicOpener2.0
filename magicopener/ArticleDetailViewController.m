@@ -22,9 +22,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.htmlWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.htmlContent]]];
+    
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.htmlWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.htmlContent]]];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
