@@ -48,6 +48,50 @@
     //[MobClick beginLogPageView:@"MessageList"];
     
     [self loadObjects];
+
+    PFUser *user = [PFUser currentUser];
+    BOOL isExpert = [[user objectForKey:@"isExpert"] boolValue];
+    
+    //专家用户
+    if (user && isExpert) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+        [query whereKey:@"expert" equalTo:[PFUser currentUser]];
+        [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:NO]];
+        [query setCachePolicy:kPFCachePolicyNetworkOnly];
+        [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+            if (!error) {
+                // The count request succeeded. Log the count
+                NSNumber *number = [NSNumber numberWithInt:count];
+                NSLog(@"get unread count %@",number);
+                if (number.integerValue > 0) {
+                    self.navigationController.tabBarItem.badgeValue = [number description];
+                }else self.navigationController.tabBarItem.badgeValue = @"";
+            } else {
+                self.navigationController.tabBarItem.badgeValue = @"";
+                NSLog(@"get error by unread count %@",error);
+            }
+        }];
+    //普通用户
+    }else if(user && (!isExpert)){
+        PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+        [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [query whereKey:@"isReplyed" equalTo:[NSNumber numberWithBool:YES]];
+        [query setCachePolicy:kPFCachePolicyNetworkOnly];
+        [query whereKey:@"isRead" equalTo:[NSNumber numberWithBool:NO]];
+        [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+            if (!error) {
+                // The count request succeeded. Log the count
+                NSNumber *number = [NSNumber numberWithInt:count];
+                NSLog(@"get unread count %@",number);
+                if (number.integerValue > 0) {
+                    self.navigationController.tabBarItem.badgeValue = [number description];
+                }else self.navigationController.tabBarItem.badgeValue = @"";
+            } else {
+                self.navigationController.tabBarItem.badgeValue = @"";
+                NSLog(@"get error by unread count %@",error);
+            }
+        }];
+    }
     
 }
 
@@ -55,6 +99,13 @@
     
     [super viewWillDisappear:animated];
     //[MobClick endLogPageView:@"MessageList"];
+    
+    PFUser *user = [PFUser currentUser];
+    BOOL isExpert = [[user objectForKey:@"isExpert"] boolValue];
+    //普通用户离开时,清除badge
+    if (user && (!isExpert)) {
+        self.navigationController.tabBarItem.badgeValue = @"";
+    }
 
 }
 

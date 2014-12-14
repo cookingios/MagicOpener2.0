@@ -9,9 +9,11 @@
 #import "AppDelegate.h"
 #import "FaceppAPI.h"
 #import "MOManager.h"
-
+#import "MOHomeViewController.h"
 
 @interface AppDelegate ()
+
+@property (strong,nonatomic) NSString *htmlContent;
 
 @end
 
@@ -71,6 +73,14 @@
         [webViewController setValue:htmlContent forKey:@"htmlContent"];
         [(UINavigationController*)tabBarController.selectedViewController pushViewController:webViewController animated:YES];
     }
+    //转到消息页
+    NSString *eventId = notificationPayload[@"eventId"];
+    if (eventId && [PFUser currentUser]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MOHomeViewController *tabBarController = (MOHomeViewController*)[storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [tabBarController setSelectedIndex:1];
+    }
+    
 
     return YES;
 }
@@ -91,6 +101,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
     if ([PFUser currentUser]) {
         PFInstallation *currentInstallation = [PFInstallation currentInstallation];
         if (![[PFUser currentUser] objectForKey:@"isExpert"]){
@@ -135,19 +146,38 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    //打开性情专栏文章
-    NSString *htmlContent = userInfo[@"htmlContent"];
-    if (htmlContent&&[PFUser currentUser]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-        
-        self.window.rootViewController = tabBarController;
-        [tabBarController setSelectedIndex:2];
-        UIViewController *webViewController = [storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
-        [webViewController setValue:htmlContent forKey:@"htmlContent"];
-        [(UINavigationController*)tabBarController.selectedViewController pushViewController:webViewController animated:YES];
+    //响应新的性情专栏文章,询问用户是否现在查看
+    self.htmlContent = userInfo[@"htmlContent"];
+    if (_htmlContent && [PFUser currentUser]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"收到新的专栏" message:@"是否现在查看?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = 180;
+        [alert show];
     }
+    //响应消息推送,询问用户是否现在查看
+    NSString *eventId = userInfo[@"eventId"];
+    if (eventId && [PFUser currentUser]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"收到新的消息" message:@"是否现在查看?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = 240;
+        [alert show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
     
+    if (alertView.tag==180 && buttonIndex == 1) {
+        
+        MOHomeViewController *tabBarController = (MOHomeViewController*)[self.window rootViewController];
+        [tabBarController setSelectedIndex:2];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *webViewController = [storyboard instantiateViewControllerWithIdentifier:@"ArticleDetailViewController"];
+        [webViewController setValue:self.htmlContent forKey:@"htmlContent"];
+        [(UINavigationController*)tabBarController.selectedViewController pushViewController:webViewController animated:YES];
+
+    }else if (alertView.tag==240 && buttonIndex==1){
+        
+        MOHomeViewController *tabBarController = (MOHomeViewController*)[self.window rootViewController];
+        [tabBarController setSelectedIndex:1];
+    }
 }
 
 
