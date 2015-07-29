@@ -33,9 +33,9 @@
 
 - (IBAction)showSettings:(id)sender {
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"设置" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"我想要新功能",@"退出登录", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"设置" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"退出登录", nil];
     
-    sheet.destructiveButtonIndex = 1;
+    sheet.destructiveButtonIndex = 0;
     
     [sheet showInView:self.view];
 }
@@ -44,11 +44,12 @@
     
     switch (buttonIndex) {
         case 0:
-            NSLog(@"0");
-            break;
-        case 1:
             [PFUser logOut];
             [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"] animated:NO completion:nil];
+            break;
+            
+        case 1:
+            
             break;
             
         default:
